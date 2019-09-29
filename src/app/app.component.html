@@ -35,9 +35,9 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" [routerLink]="['/dangnhap']">Đăng nhập</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" >Quên mật khẩu</a>
+                            <a class="dropdown-item">Quên mật khẩu</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" >Đăng Xuất</a>
+                            <a class="dropdown-item">Đăng Xuất</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" [routerLink]="['/doimatkhau']">Đổi mật khẩu</a>
                             <div class="dropdown-divider"></div>
@@ -67,12 +67,13 @@
                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                         data-parent="#accordionExample">
                         <ul class="list-group">
-                            <div>
-                                <a routerLink='/dienthoai'>
-                                    <li class="list-group-item">Sắp Tới sẽ cập nhật</li>
+                            <div *ngFor="let danhmuc of danhmuc">
+                                <a href="">
+                                    <li class="list-group-item">{{danhmuc.Name}}</li>
                                 </a>
+
                             </div>
-                            
+
                         </ul>
                     </div>
                 </div>
