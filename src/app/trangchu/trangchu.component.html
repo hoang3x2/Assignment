@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-4" *ngFor="let danhmuc of danhmuc">
+        <div class="card text-center">
+            <a [routerLink]="['/trangchu',danhmuc.Id]" style="text-decoration: none;">
+                <div>
+                    <img src="{{danhmuc.Logo}}" alt="..." class="img-thumbnail" style="height: 170px">
+                </div>
+                <div class="card-footer text-muted" style="height: auto; ">
+                    {{danhmuc.Name}}
+                </div>
+            </a>
+        </div>
+        <br>
+    </div>
+</div>
