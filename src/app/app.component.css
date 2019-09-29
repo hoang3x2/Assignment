@@ -1,0 +1,16 @@
+.banner {
+    background-color: black;
+    height: 200px;
+}
+
+.nav-item :hover {
+    background-color: rgb(180, 180, 86);
+    color: black
+}
+
+.dropdown-menu :hover {
+    background-color: rgb(146, 146, 216);
+}
+.nav-item{
+    margin:auto 15px;
+}
