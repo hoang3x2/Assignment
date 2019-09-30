@@ -1,0 +1,34 @@
+<div class="container">
+    <br>
+    <div class="card text-center">
+        <div class="card-header" align="left">
+            {{name}}
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-dark">
+                <tbody>
+                    <tr>
+                        <th scope="row">SẢN PHẨM</th>
+                        <th>ĐƠN GIÁ</th>
+                        <th>GIẢM GIÁ</th>
+                        <th>NGÀY</th>
+                    </tr>
+                    <tr
+                        *ngFor="let ADAV of ADAV | paginate: { itemsPerPage:sodong, currentPage:sotrang }">
+                        <td>{{ADAV.Id}}</td>
+                        <td>{{ADAV.Text }}</td>
+                        <td>{{ADAV.Marks}}</td>
+                        <td>{{ADAV.AnswerId}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer text-muted" style="font-size: 30px">
+            <a (click)="luipage()"><i class="fa fa-hand-o-left"></i></a>
+            <a (click)="luidong()"><i class="fa fa-hand-o-up"></i></a>
+            <a (click)="tangdong()"><i class="fa fa-hand-o-down"></i></a>
+            <a (click)="nextpage()"><i class="fa fa-hand-o-right"></i></a>
+            <br>
+        </div>
+    </div>
+</div>

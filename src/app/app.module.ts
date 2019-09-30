@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { TrangchuComponent } from './trangchu/trangchu.component';
@@ -31,7 +32,8 @@ import { QuenmatkhauComponent } from './quenmatkhau/quenmatkhau.component';
     DanhmucmonhocComponent,
     ThitracnghiemComponent,
     LienheComponent,
-    QuenmatkhauComponent
+    QuenmatkhauComponent,
+    
   ],
   /*Trang chủ
 
@@ -54,6 +56,7 @@ import { QuenmatkhauComponent } from './quenmatkhau/quenmatkhau.component';
   imports: [
     BrowserModule,
     FormsModule,
+    NgxPaginationModule,
     RouterModule.forRoot(
       [
         {path:'',component:TrangchuComponent},
@@ -68,7 +71,8 @@ import { QuenmatkhauComponent } from './quenmatkhau/quenmatkhau.component';
         {path:'gopy',component:GopyComponent},
         {path:'hoidap',component:HoidapComponent},
         {path:'suadoitaikhoan',component:SuadoitaikhoanComponent},
-        {path:'thitracnghiem',component:ThitracnghiemComponent},
+        {path:'thitracnghiem/:Id',component:ThitracnghiemComponent},
+        { path: '**', redirectTo: 'trangchu', pathMatch: 'full' },
       ]
     )
   ],
