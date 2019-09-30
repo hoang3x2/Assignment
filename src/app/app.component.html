@@ -1,5 +1,7 @@
 <div class="container">
-    <div class="banner"></div>
+    <div class="banner">
+        <img src="../assets/banner.png" alt="">
+    </div>
     <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
@@ -35,9 +37,9 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" [routerLink]="['/dangnhap']">Đăng nhập</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item">Quên mật khẩu</a>
+                            <a class="dropdown-item"[routerLink]="['/quenmatkhau']">Quên mật khẩu</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item">Đăng Xuất</a>
+                            <a class="dropdown-item"[routerLink]="['/dangnhap']">Đăng Xuất</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" [routerLink]="['/doimatkhau']">Đổi mật khẩu</a>
                             <div class="dropdown-divider"></div>

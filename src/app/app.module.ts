@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router'
+import { RouterModule } from '@angular/router';
+import {FormsModule} from '@angular/forms'
 
 import { AppComponent } from './app.component';
 import { TrangchuComponent } from './trangchu/trangchu.component';
@@ -14,6 +15,7 @@ import { SuadoitaikhoanComponent } from './suadoitaikhoan/suadoitaikhoan.compone
 import { DanhmucmonhocComponent } from './danhmucmonhoc/danhmucmonhoc.component';
 import { ThitracnghiemComponent } from './thitracnghiem/thitracnghiem.component';
 import { LienheComponent } from './lienhe/lienhe.component';
+import { QuenmatkhauComponent } from './quenmatkhau/quenmatkhau.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { LienheComponent } from './lienhe/lienhe.component';
     SuadoitaikhoanComponent,
     DanhmucmonhocComponent,
     ThitracnghiemComponent,
-    LienheComponent
+    LienheComponent,
+    QuenmatkhauComponent
   ],
   /*Trang chủ
 
@@ -50,6 +53,7 @@ import { LienheComponent } from './lienhe/lienhe.component';
  */
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(
       [
         {path:'',component:TrangchuComponent},
@@ -59,13 +63,12 @@ import { LienheComponent } from './lienhe/lienhe.component';
         {path:'lienhe',component:LienheComponent},
         {path:'danhmucmonhoc',component:DanhmucmonhocComponent},
         {path:'doimatkhau',component:DoimatkhauComponent},
+        {path:'quenmatkhau',component:QuenmatkhauComponent},
         {path:'gioithieu',component:GioithieuComponent},
         {path:'gopy',component:GopyComponent},
         {path:'hoidap',component:HoidapComponent},
         {path:'suadoitaikhoan',component:SuadoitaikhoanComponent},
         {path:'thitracnghiem',component:ThitracnghiemComponent},
-
-
       ]
     )
   ],
