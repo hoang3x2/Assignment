@@ -1,17 +1,25 @@
 <div class="container">
+    <h1 style="text-align: center;color:blue">Đăng Nhập</h1>
     <br>
     <form>
         <div class="form-group">
             <label for="formGroupExampleInput">Tài Khoản</label>
-            <input type="text" class="form-control" id="formGroupExampleInput">
+            <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="formSudent.username"
+                [ngModelOptions]="{standalone: true}">
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2">Mật khẩu</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2">
+            <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="formSudent.password"
+                [ngModelOptions]="{standalone: true}">
             <a href="" style="text-decoration: none">Quên mật khẩu</a>
         </div>
         <div>
-                <button type="buuto" class="btn btn-primary mb-2">Đăng Nhập</button>
+            <button type="buuto" class="btn btn-primary mb-2" (click)="Dangnhap()">Đăng Nhập</button>
+        </div>
+        <div>
+            <h5>test:</h5>
+            "username": "teonv",
+            "password": "iloveyou",
         </div>
     </form>
 </div>

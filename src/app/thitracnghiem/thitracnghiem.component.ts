@@ -211,7 +211,6 @@ export class ThitracnghiemComponent implements OnInit {
       });
     this.chuadanhmuc = this.danhmuc.find(p => p.Id == this.id);
     this.name = this.chuadanhmuc.Name;
-
   }
   sodong = 5;
   sotrang = 1;
