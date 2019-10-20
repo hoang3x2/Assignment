@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TrangchuComponent } from './trangchu/trangchu.component';
@@ -57,6 +58,7 @@ import { QuenmatkhauComponent } from './quenmatkhau/quenmatkhau.component';
     BrowserModule,
     FormsModule,
     NgxPaginationModule,
+    HttpClientModule,
     RouterModule.forRoot(
       [
         {path:'',component:TrangchuComponent},
@@ -71,7 +73,7 @@ import { QuenmatkhauComponent } from './quenmatkhau/quenmatkhau.component';
         {path:'gopy',component:GopyComponent},
         {path:'hoidap',component:HoidapComponent},
         {path:'suadoitaikhoan',component:SuadoitaikhoanComponent},
-        {path:'thitracnghiem/:Id',component:ThitracnghiemComponent},
+        {path:'thitracnghiem/:Name/:Id',component:ThitracnghiemComponent},
         { path: '**', redirectTo: 'trangchu', pathMatch: 'full' },
       ]
     )

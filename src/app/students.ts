@@ -1,3 +1,4 @@
+
 export class Students{
         id:number;
         username: string;
@@ -6,5 +7,4 @@ export class Students{
         email: string;
         gender: string;
         birthday: Date;
-       
 }
