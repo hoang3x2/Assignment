@@ -8,10 +8,18 @@ export class DataService {
 
   constructor(private http :HttpClient) { }
   urlSubj='assets/db/Subjects.json';
+  urlStudenst='assets/db/Students.json';
+  public username;
+  themTen(u){
+    this.username=u;
+  }
   getSubjects(){
     return this.http.get(this.urlSubj);
   }
   getQuiz(url:string){
     return this.http.get(url);
+  }
+  getstudents(){
+    return this.http.get(this.urlStudenst)
   }
 }

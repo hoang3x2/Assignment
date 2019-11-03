@@ -45,5 +45,6 @@ export class ThitracnghiemComponent implements OnInit {
       this.sotrang--;
     }
   }
+  
 
 }

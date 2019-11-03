@@ -1,14 +1,30 @@
 <div class="container">
-    <br>
-    <form>
-        <div class="form-group">
-            <label for="formGroupExampleInput">Nhập mật khẩu cũ</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" >
+        <br>
+        <h1 style="color:green   ;text-align:center">Đổi mật khẩu</h1>
+        <form>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Nhập  Username</label>
+                <input type="text" class="form-control" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Nhập mật khẩu cũ</label>
+                <input type="text" class="form-control" [(ngModel)]="passwordCu" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput2">Nhập mật khẩu mới</label>
+                <input type="text" class="form-control" [(ngModel)]="passwordMoi" [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="formGroupExampleInput">Nhập Lại mật khẩu mới</label>
+                <input type="text" class="form-control" [(ngModel)]="nhapLaiPasswordMoi" [ngModelOptions]="{standalone: true}">
+            </div>
+            <button class="btn btn-success" (click)="DoiMatKhau()">Submit</button>
+        </form>
+        <div>
+            <div>
+                test
+            </div>
+                "username": "teonv",
+                "password": "iloveyou",
         </div>
-        <div class="form-group">
-            <label for="formGroupExampleInput2">Nhập mật khẩu mới</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" >
-        </div>
-        <button type="button" class="btn btn-success">Submit</button>
-    </form>
-</div>
+    </div>

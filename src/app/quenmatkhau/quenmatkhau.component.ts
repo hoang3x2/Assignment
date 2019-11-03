@@ -51,7 +51,6 @@ export class QuenmatkhauComponent implements OnInit {
   EditPass() {
     for (let index = 0; index < this.students.length; index++) {
       if (this.formSudent.username === this.students[index].username &&
-        this.formSudent.fullname === this.students[index].fullname &&
         this.formSudent.email === this.students[index].email) {
         this.dem++;
         this.chua = index;

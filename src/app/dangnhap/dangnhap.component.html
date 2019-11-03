@@ -3,18 +3,27 @@
     <br>
     <form>
         <div class="form-group">
-            <label for="formGroupExampleInput">Tài Khoản</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="formSudent.username"
+            <label for="formGroupExampleInput">Tai Khoan</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="formStudent.username"
                 [ngModelOptions]="{standalone: true}">
         </div>
         <div class="form-group">
             <label for="formGroupExampleInput2">Mật khẩu</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" [(ngModel)]="formSudent.password"
+            <input type="password" class="form-control" id="formGroupExampleInput2" [(ngModel)]="formStudent.password"
                 [ngModelOptions]="{standalone: true}">
-            <a href="" style="text-decoration: none">Quên mật khẩu</a>
+            <a [routerLink]="['/quenmatkhau']" style="text-decoration: none">Quên mật khẩu</a><br>
         </div>
         <div>
-            <button type="buuto" class="btn btn-primary mb-2" (click)="Dangnhap()">Đăng Nhập</button>
+            <button type="button" class="btn btn-primary mb-2" (click)="Dangnhap()">Đăng Nhập</button>
+        </div><br>
+        
+        <div [hidden]="dangNhapThanhCong" >
+            <h2 class="alert alert-success">Đăng nhập thành công!</h2>
+            
+        </div>
+        <div [hidden]="nhapSaiThongTin">
+            <h2 class="alert alert-danger">Đăng Nhập thất bại</h2>
+
         </div>
         <div>
             <h5>test:</h5>
@@ -22,4 +31,5 @@
             "password": "iloveyou",
         </div>
     </form>
+
 </div>
