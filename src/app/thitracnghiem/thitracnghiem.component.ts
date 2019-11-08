@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router'
+import { ActivatedRoute, Router } from '@angular/router'
 import { DataService } from '../data.service'
 @Component({
   selector: 'app-thitracnghiem',
@@ -7,37 +7,55 @@ import { DataService } from '../data.service'
   styleUrls: ['./thitracnghiem.component.css']
 })
 export class ThitracnghiemComponent implements OnInit {
+  checkdata = this.ds.checkdangnhap;
 
-  id:string;
+  dapandung;
+  id: string;
   name: string;
   quiz: any;
   url: string;
   data;
-  stt=1;
   thongtin = {
     valuee: 0,
   };
-  constructor(private _data: DataService,
-    private route: ActivatedRoute,
+  hieninput = false;
+  hiennextpage = true;
+  hiensubmit = true;
+  mark = 0;
+  constructor(private ds: DataService,
+    private route: ActivatedRoute, private router: Router
   ) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(
-      para => {
-      this.id = para.get('Id');
-        this.name = para.get('Name');
-      });
+    if (this.ds.checkdangnhap == false) {
+      this.router.navigate(['/dangnhap'])
+    }
+    else {
+      this.route.paramMap.subscribe(
+        para => {
+          this.id = para.get('Id');
+          this.name = para.get('Name');
+        });
       this.url = 'assets/db/Quizs/' + this.id + '.json';
-    this._data.getQuiz(this.url).subscribe((data) => {
-      this.quiz = data;
-      console.log(this.quiz)
-    });
+      this.ds.getQuiz(this.url).subscribe((data) => {
+        this.quiz = data;
+        console.log(this.quiz)
+      });
+    }
+
   }
   sodong = 1;
   sotrang = 1;
   nextpage() {
+    this.hieninput = false;
+    this.hiensubmit = true;
+    this.hiennextpage = true;
+    this.dapandung=null;
     if (this.quiz.length / this.sodong > this.sotrang) {
       this.sotrang++;
+    }
+    if (this.sotrang==this.quiz.length) {
+      alert('bai thi cua ban dat duoc:'+this.mark)
     }
   }
   luipage() {
@@ -45,6 +63,30 @@ export class ThitracnghiemComponent implements OnInit {
       this.sotrang--;
     }
   }
-  
+  tinhdiem(dapanId, mangDapAn) {
+    this.hieninput = true;
+
+    if (this.thongtin.valuee == dapanId) {
+      this.mark++;
+    }
+    else {
+      this.dapandung = mangDapAn.find(x => {
+        return x.Id == dapanId;
+      });
+    }
+  }
+  kiemtrainput() {
+    if (this.hieninput === false) {
+      this.hiensubmit = false;
+      
+    }
+  }
+  kiemtrasubmit() {
+    if (this.hiensubmit === false) {
+      this.hiennextpage = false;
+      this.hiensubmit = true;
+    }
+  }
+
 
 }

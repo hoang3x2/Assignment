@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from './../data.service';
+import {Router} from '@angular/router'
 
 @Component({
     selector: 'app-trangchu',
@@ -21,12 +22,19 @@ export class TrangchuComponent implements OnInit {
         }
     }
 
-    constructor(private service: DataService) { }
+    constructor(private ds: DataService, private router:Router) { }
 
     ngOnInit() {
-        this.service.getSubjects().subscribe(data => {
+        this.ds.getSubjects().subscribe(data => {
             this.subject = data;
         })
+    }
+    checkdangnhap_trangchu()
+     {
+        if (this.ds.checkdangnhap == false) {
+            alert('vui long dang nhap!')
+            this.router.navigate(['/dangnhap'])
+        }
     }
 
 }

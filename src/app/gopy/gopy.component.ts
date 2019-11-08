@@ -6,10 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gopy.component.css']
 })
 export class GopyComponent implements OnInit {
-
+  formSudent = {
+    one: "",
+    two: "",
+    three: "",
+    four: "",
+  }
   constructor() { }
 
   ngOnInit() {
   }
-
+  checkgui(){
+    this.formSudent = {
+      one: "",
+      two: "",
+      three: "",
+      four: "",
+    }
+    alert('Đã gửi thành công!')
+  }
 }

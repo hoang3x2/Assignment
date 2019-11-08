@@ -1,12 +1,12 @@
 <div class="row">
     <div class="col-6" *ngFor="let danhmuc of subject  | paginate: { itemsPerPage:sodong, currentPage:sotrang }">
         <div class="card text-center">
-            <a [routerLink]="['/thitracnghiem',danhmuc.Name,danhmuc.Id]" style="text-decoration: none;">
+            <a (click)="checkdangnhap_trangchu" [routerLink]="['/thitracnghiem',danhmuc.Name,danhmuc.Id]" style="text-decoration: none;">
                 <div>
                     <img src="assets/images/{{danhmuc.Logo}}" alt="...">
                 </div>
-                <div class="card-footer text-muted" style="height: auto; ">
-                    {{danhmuc.Name}}
+                <div class="card-footer text-muted" style="height: auto;background-color: #202020; ">
+                    <p style="color: white;">{{danhmuc.Name}}</p>
                 </div>
             </a>
         </div>

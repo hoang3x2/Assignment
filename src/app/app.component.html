@@ -1,69 +1,80 @@
-<div class="container">
-    <div class="banner">
-        <img src="../assets/baa.png" alt="">
-    </div>
-    <div>
+<div class="full">
 
-        <div class="thanhmenu">
-            <li><a class="nav-link" [routerLink]="['/trangchu']">Trang chủ</a></li>
-            <li><a class="nav-link" [routerLink]="['/gioithieu']"> Giới thiệu </a></li>
-            <li><a class="nav-link" [routerLink]="['/lienhe']"> Liên hệ</a></li>
-            <li><a class="nav-link" [routerLink]="['/gopy']"> Góp ý</a></li>
-            <li><a class="nav-link" [routerLink]="['/hoidap']"> Hỏi đáp</a></li>
-            <div class="form-inline my-2 my-lg-0" style="float:right">
-                <ul class="navbar-nav">
-                    <li class=" dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Tài Khoản
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" [routerLink]="['/dangki']">Đăng ký</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" [routerLink]="['/dangnhap']">Đăng nhập</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" [routerLink]="['/quenmatkhau']">Quên mật khẩu</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" [routerLink]="['/dangnhap']">Đăng Xuất</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" [routerLink]="['/doimatkhau']">Đổi mật khẩu</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" [routerLink]="['/suadoitaikhoan']">Cập nhật tài khoản</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+    <div class="container">
+        <div class="banner">
+            <img src="../assets/baa.png" alt="">
         </div>
-    </div>
-    <div class="row">
-        <div class="col-9">
-            <router-outlet></router-outlet>
-        </div>
-        
-        <div class="col-3">
-            <div class="accordion" id="accordionExample">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                                aria-expanded="true" aria-controls="collapseOne">
-                                <i class="fa fa-th-list" style="font-size:18px;"> Danh mục môn học</i>
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                        data-parent="#accordionExample">
-                        <ul class="list-group">
-                            <div *ngFor="let danhmuc of danhmuc">
-                                <a [routerLink]="['/thitracnghiem',danhmuc.Id]" style="text-decoration: none" id="danhmuc">
-                                    <li class="list-group-item" >{{danhmuc.Name}}</li>
-                                </a>
+        <div>
+
+            <div class="thanhmenu">
+                <li><a class="nav-link" [routerLink]="['/trangchu']"><i class="fas fa-home"></i> Trang chủ</a></li>
+                <li><a class="nav-link" [routerLink]="['/gioithieu']"><i class="fas fa-id-card-alt"></i> Giới thiệu </a>
+                </li>
+                <li><a class="nav-link" [routerLink]="['/lienhe']"><i class="fas fa-line"></i> Liên hệ</a></li>
+                <li><a class="nav-link" [routerLink]="['/gopy']"><i class="far fa-comment"></i> Góp ý</a></li>
+                <li><a class="nav-link" [routerLink]="['/hoidap']"><i class="far fa-question-circle"></i> Hỏi đáp</a>
+                </li>
+                <div class="form-inline my-2 my-lg-0" style="float:right">
+                    <ul class="navbar-nav">
+                        <li class=" dropdown">
+                            <a *ngIf="isshow" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fas fa-user-circle"></i>
+                                Tài Khoản
+                            </a>
+                            <a *ngIf="!isshow" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                    class="fas fa-user-circle"></i>
+                                {{Username}}
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" [routerLink]="['/dangki']">Đăng ký</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" [routerLink]="['/dangnhap']">Đăng nhập</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" [routerLink]="['/quenmatkhau']">Quên mật khẩu</a>
+                                <div class="dropdown-divider"></div>
+                                <a (click)="exit()" class="dropdown-item" [routerLink]="['/dangnhap']">Đăng Xuất</a>
+                                <div class="dropdown-divider"></div>
+                                <a (click)="check()" class="dropdown-item" [routerLink]="['/doimatkhau']">Đổi mật khẩu</a>
+                                <div class="dropdown-divider"></div>
+                                <a (click)="check()" class="dropdown-item" [routerLink]="['/suadoitaikhoan']">Cập nhật tài khoản</a>
                             </div>
-                        </ul>
-                    </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        
+        <div class="row">
+            <div class="col-9" style="margin-top:12px">
+                <router-outlet></router-outlet>
+            </div>
+            <div class="col-3" style="margin-top:12px">
+                <div class="accordion" id="accordionExample">
+                    <div class="card">
+                        <div class="card-header" id="headingOne">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                    data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-th-list" style="font-size:18px;"> Danh mục môn học</i>
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordionExample">
+                            <ul class="list-group">
+                                <div *ngFor="let danhmuc of danhmuc">
+                                    <a [routerLink]="['/thitracnghiem',danhmuc.Name,danhmuc.Id]" style="text-decoration: none"
+                                        id="danhmuc">
+                                        <li (click)="checkdangnhap()" class="list-group-item">{{danhmuc.Name}}</li>
+                                    </a>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </div>

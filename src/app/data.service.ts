@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import{HttpClient} from '@angular/common/http';
+import{ HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,10 @@ export class DataService {
   urlSubj='assets/db/Subjects.json';
   urlStudenst='assets/db/Students.json';
   public username;
+  public checkdangnhap:Boolean=true;
+  
+
+
   themTen(u){
     this.username=u;
   }
@@ -22,4 +26,5 @@ export class DataService {
   getstudents(){
     return this.http.get(this.urlStudenst)
   }
+
 }

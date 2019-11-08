@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Students } from '../students';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
-import { DataService } from '../data.service'
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-dangnhap',
   templateUrl: './dangnhap.component.html',
@@ -28,8 +28,11 @@ export class DangnhapComponent implements OnInit {
         this.dangNhapThanhCong = false;
         this.nhapSaiThongTin = !this.dangNhapThanhCong;
         alert(`Đăng nhập thành công`);
+        this.ds.checkdangnhap=true;
         this.ds.themTen(this.students[i].username);
+        console.log(this.ds.themTen)
         this.router.navigate(['/trangchu']);
+        this.ds.checkdangnhap=true;
         return;
       }
       else {

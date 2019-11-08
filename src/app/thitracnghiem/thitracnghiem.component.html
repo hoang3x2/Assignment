@@ -2,44 +2,40 @@
     <br>
     <div class="card " *ngFor="let qui of quiz | paginate: { itemsPerPage: sodong, currentPage: sotrang }">
 
-        <div class="card-header" align="left">
+        <div class="card-header" align="left" style="background-color: red;color: yellow;">
             {{name}}
         </div>
         <div class="card-body">
-            <p style="text-align: center;">Câu:{{qui.Text}}</p>
-            <div class="row" style="margin-left: 10px;">
-                <div class="form-check form-check-inline formradio">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                        [value]="qui.Answers[0].Id" [(ngModel)]="thongtin.valuee" [ngModelOptions]="{standalone: true}">
-                    <label class="form-check-label">{{qui.Answers[0].Text}}</label>
-                </div>
-            </div>
-
-            <div class="row" style="margin-left: 10px;">
-                <div class="form-check form-check-inline formradio">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                        [value]="qui.Answers[1].Id" [(ngModel)]="thongtin.valuee" [ngModelOptions]="{standalone: true}">
-                    <label class="form-check-label">{{qui.Answers[1].Text}}</label>
-                </div>
-            </div>
-            <div class="row" style="margin-left: 10px;">
-                <div class="form-check form-check-inline formradio">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                        [value]="qui.Answers[2].Id" [(ngModel)]="thongtin.valuee" [ngModelOptions]="{standalone: true}">
-                    <label class="form-check-label">{{qui.Answers[2].Text}}</label>
-                </div>
-            </div>
-            <div class="row" style="margin-left: 10px;">
-                <div class="form-check form-check-inline formradio">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                        [value]="qui.Answers[3].Id" [(ngModel)]="thongtin.valuee" [ngModelOptions]="{standalone: true}">
-                    <label class="form-check-label">{{qui.Answers[3].Text}}</label>
+            <p style="text-align: center;background-color: rgb(119, 131, 131);color: white;">Câu
+                {{sotrang}}:{{qui.Text}}</p>
+            <div *ngFor="let question of qui.Answers">
+                <div class="row" style="margin-left: 10px;">
+                    <div class="form-check form-check-inline formradio">
+                        <!-- <input (click)="kiemtrainput()" class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                         [disabled]="hieninput"   [value]="question.Id" [(ngModel)]="thongtin.valuee" [ngModelOptions]="{standalone: true}">
+                        <label class="form-check-label">{{question.Text}}</label> -->
+                        <label class="checkradio">{{question.Text}}
+                            <input type="radio" (click)="kiemtrainput()" name="inlineRadioOptions" id="inlineRadio1"
+                                [disabled]="hieninput" [value]="question.Id" [(ngModel)]="thongtin.valuee"
+                                [ngModelOptions]="{standalone: true}">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="card-footer text-muted" style="font-size: 30px">
-            <a (click)="luipage()" style="float: left;"><i class="fa fa-hand-o-left"></i></a>
-            <a (click)="nextpage()" style="float:right"><i class="fa fa-hand-o-right"></i></a>
+        <!-- hien dap an khi tra loi sai -->
+        <div *ngIf="dapandung" style="font-size: 25px;text-align: center;background-color: yellow;">
+            Đáp án đúng là : {{dapandung.Text}}
+        </div>
+        <div class="card-footer text-muted" style="height: 70px;">
+            <div>
+                <p style="float: left;font-size: 25px;">Mark:{{mark}}</p>
+                <button type="button" class="btn btn-primary" [disabled]="hiensubmit" (click)="kiemtrasubmit()"
+                    id="ttn_submit" (click)="tinhdiem(qui.AnswerId,qui.Answers)">Submit</button>
+                <button [disabled]="hiennextpage" (click)="nextpage()" type="button" value="Next" style="float: right;"
+                    name="dapan_button" class="btn btn-dark">Next</button>
+            </div>
             <br>
         </div>
     </div>
