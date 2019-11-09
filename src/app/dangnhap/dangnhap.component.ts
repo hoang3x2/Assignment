@@ -17,10 +17,12 @@ export class DangnhapComponent implements OnInit {
   dangNhapThanhCong = true;
   nhapSaiThongTin = true;
   ngOnInit() {
-    this.ds.getstudents().subscribe(data=>{
-          this.students=data;
-          console.log(this.students);
-      });
+    // this.ds.getstudents().subscribe(data=>{
+    //       this.students=data;
+    //        console.log(this.students);
+    //   });
+      this.students=this.ds.chuaformsaukhidoimatkhau;
+    console.log('day la mang cua tui:' +this.students)
   }
   Dangnhap() {
     for (let i = 0; i < this.students.length; i++) {
@@ -29,9 +31,9 @@ export class DangnhapComponent implements OnInit {
         this.nhapSaiThongTin = !this.dangNhapThanhCong;
         alert(`Đăng nhập thành công`);
         this.ds.checkdangnhap=true;
-        this.ds.themTen(this.students[i].username);
-        console.log(this.ds.themTen)
         this.router.navigate(['/trangchu']);
+        this.ds.username=this.students[i].username;
+        // console.log(this.ds.username)
         this.ds.checkdangnhap=true;
         return;
       }

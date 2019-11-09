@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Students } from '../students';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -21,7 +22,6 @@ export class DoimatkhauComponent implements OnInit {
   ngOnInit() {
     this.ds.getstudents().subscribe(data => {
       this.students = data;
-
     })
 
   }
@@ -33,14 +33,15 @@ export class DoimatkhauComponent implements OnInit {
         }
         else {
           this.students[i].password = this.passwordMoi;
-          console.log(this.students);
+          console.log('day la form sau khi doi mat khau'+this.ds.chuaformsaukhidoimatkhau);
           alert('đổi mật khẩu thành công');
-          this.router.navigate(['/dangnhap'])
-     
+          this.ds.chuaformsaukhidoimatkhau=this.students;
+          this.router.navigate(['/dangnhap']);
+          break;
         }
       }
     }
- 
+    
 
   }
 }

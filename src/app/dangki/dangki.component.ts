@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Students } from '../students'
+import { Students } from '../students';
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-dangki',
   templateUrl: './dangki.component.html',
@@ -14,42 +15,18 @@ export class DangkiComponent implements OnInit {
     gender: "",
     birthday: new Date().toISOString().substring(0, 10),
   }
-  students: Students[] =
-    [
-      {
-        id: 1,
-        username: "teonv",
-        password: "iloveyou",
-        fullname: "Nguyễn Văn Tèo",
-        email: "teonv@fpt.edu.vn",
-        gender: "nam",
-        birthday: new Date(1995, 12, 21),
-      },
-      {
-        id: 2,
-        username: "pheonv",
-        password: "iloveyou",
-        fullname: "Nguyễn Văn Chí Phèo",
-        email: "pheonv@fpt.edu.vn",
-        gender: "nam",
-        birthday: new Date(1985, 10, 11),
-      },
-      {
-        id: 3,
-        username: "nopt",
-        password: "iloveyou",
-        fullname: "Phạm Thị Nở",
-        email: "nopt@fpt.edu.vn",
-        gender: "nu",
-        birthday: new Date(1993, 5, 15),
-      }
-    ]
-  constructor() { }
+  students;
+  constructor(private ds: DataService) { }
 
   ngOnInit() {
+    this.ds.getstudents().subscribe(data => {
+      this.students = data;
+    })
   }
   Addthongtin() {
     this.students.push(Object.assign(this.formSudent))
+    this.ds.chuaformsaukhidoimatkhau=this.students;
+    console.log(this.ds.chuaformsaukhidoimatkhau)
     this.formSudent = {
       username: "",
       password: "",

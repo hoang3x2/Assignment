@@ -39,7 +39,7 @@ export class ThitracnghiemComponent implements OnInit {
       this.url = 'assets/db/Quizs/' + this.id + '.json';
       this.ds.getQuiz(this.url).subscribe((data) => {
         this.quiz = data;
-        console.log(this.quiz)
+        // console.log(this.quiz)
       });
     }
 
@@ -54,8 +54,9 @@ export class ThitracnghiemComponent implements OnInit {
     if (this.quiz.length / this.sodong > this.sotrang) {
       this.sotrang++;
     }
-    if (this.sotrang==this.quiz.length) {
-      alert('bai thi cua ban dat duoc:'+this.mark)
+    if (this.sotrang==this.quiz.length+1) {
+      alert('bai thi cua ban dat duoc:'+this.mark);
+      this.router.navigate(['/trangchu']);
     }
   }
   luipage() {

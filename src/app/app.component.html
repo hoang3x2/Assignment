@@ -4,41 +4,38 @@
         <div class="banner">
             <img src="../assets/baa.png" alt="">
         </div>
-        <div>
+        <div id="menu_id">
 
             <div class="thanhmenu">
-                <li><a class="nav-link" [routerLink]="['/trangchu']"><i class="fas fa-home"></i> Trang chủ</a></li>
+                <li><a style="color:red;" class="nav-link" [routerLink]="['/trangchu']"><i class="fas fa-home"></i></a>
+                </li>
                 <li><a class="nav-link" [routerLink]="['/gioithieu']"><i class="fas fa-id-card-alt"></i> Giới thiệu </a>
                 </li>
-                <li><a class="nav-link" [routerLink]="['/lienhe']"><i class="fas fa-line"></i> Liên hệ</a></li>
-                <li><a class="nav-link" [routerLink]="['/gopy']"><i class="far fa-comment"></i> Góp ý</a></li>
-                <li><a class="nav-link" [routerLink]="['/hoidap']"><i class="far fa-question-circle"></i> Hỏi đáp</a>
+                <li><a class="nav-link" [routerLink]="['/lienhe']"> Liên hệ </a></li>
+                <li><a class="nav-link" [routerLink]="['/gopy']"><i class="far fa-comment"></i> Góp ý </a></li>
+                <li><a class="nav-link" [routerLink]="['/hoidap']"><i class="far fa-question-circle"></i> Hỏi đáp </a>
                 </li>
-                <div class="form-inline my-2 my-lg-0" style="float:right">
+                <div style="float:right;">
+                    <li><a *ngIf="getisShow()" class="nav-link" [routerLink]="['/dangki']" style="color: white;"><i class="fas fa-check-circle"> Đăng ký </i></a></li>
+                    <li><a *ngIf="getisShow()" class="nav-link" [routerLink]="['/dangnhap']" style="color:yellow"><i class="fa fa-user"> Đăng nhập </i></a></li>
+                </div>
+                
+                <div *ngIf="!getisShow()" class="form-inline my-2 my-lg-0" style="float:right">
                     <ul class="navbar-nav">
                         <li class=" dropdown">
-                            <a *ngIf="isshow" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                            <a  class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    class="fas fa-user-circle"></i>
-                                Tài Khoản
-                            </a>
-                            <a *ngIf="!isshow" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    class="fas fa-user-circle"></i>
-                                {{Username}}
+                                class="fa fa-user"></i>
+                                <span style="font-size: 15px;padding-left: 5px;">Thí Sinh: {{Username}}</span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" [routerLink]="['/dangki']">Đăng ký</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" [routerLink]="['/dangnhap']">Đăng nhập</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" [routerLink]="['/quenmatkhau']">Quên mật khẩu</a>
-                                <div class="dropdown-divider"></div>
                                 <a (click)="exit()" class="dropdown-item" [routerLink]="['/dangnhap']">Đăng Xuất</a>
                                 <div class="dropdown-divider"></div>
-                                <a (click)="check()" class="dropdown-item" [routerLink]="['/doimatkhau']">Đổi mật khẩu</a>
+                                <a (click)="check()" class="dropdown-item" [routerLink]="['/doimatkhau']">Đổi mật
+                                    khẩu</a>
                                 <div class="dropdown-divider"></div>
-                                <a (click)="check()" class="dropdown-item" [routerLink]="['/suadoitaikhoan']">Cập nhật tài khoản</a>
+                                <a (click)="check()" class="dropdown-item" [routerLink]="['/suadoitaikhoan']">Cập nhật
+                                    tài khoản</a>
                             </div>
                         </li>
                     </ul>
@@ -64,8 +61,8 @@
                             data-parent="#accordionExample">
                             <ul class="list-group">
                                 <div *ngFor="let danhmuc of danhmuc">
-                                    <a [routerLink]="['/thitracnghiem',danhmuc.Name,danhmuc.Id]" style="text-decoration: none"
-                                        id="danhmuc">
+                                    <a [routerLink]="['/thitracnghiem',danhmuc.Name,danhmuc.Id]"
+                                        style="text-decoration: none" id="danhmuc">
                                         <li (click)="checkdangnhap()" class="list-group-item">{{danhmuc.Name}}</li>
                                     </a>
                                 </div>

@@ -111,19 +111,14 @@ export class AppComponent implements OnInit {
         }
     ]
     isshow = true;
-    Username = '';
-
+    Username;
+    anhien = false;
     constructor(private ds: DataService, private router: Router) {
 
     }
+ 
 
     ngOnInit() {
-        if (this.ds.checkdangnhap == true) {
-            this.Username = this.ds.username;
-            this.isshow = false;
-            // console.log('day la ishow :' + this.ds.username)
-        }
-
     }
     exit() {
         if (this.ds.checkdangnhap == false) {
@@ -133,22 +128,34 @@ export class AppComponent implements OnInit {
         if (this.ds.checkdangnhap == true) {
             alert('ban da dang xuat!')
             this.router.navigate(['/dangnhap'])
-            this.ds.themTen =null;
             this.ds.checkdangnhap = false;
             console.log(this.ds.checkdangnhap)
         }
+        console.log(this.anhien)
     }
+    //dangnhap
     checkdangnhap() {
         if (this.ds.checkdangnhap == false) {
             alert('vui long dang nhap truoc khi thi!')
             this.router.navigate(['/dangnhap'])
         }
-    }
+    }//check ham sau khi dang nhap
     check() {
         if (this.ds.checkdangnhap == false) {
             alert('vui long dang nhap !')
             this.router.navigate(['/dangnhap'])
         }
+    }
+    getisShow(){
+        if(this.ds.checkdangnhap==true){
+            this.Username=this.ds.username;
+            // console.log('asdasd',this.Username)
+            return false;
+        }
+        else{
+            return true;
+        }
+        
     }
 
 }
