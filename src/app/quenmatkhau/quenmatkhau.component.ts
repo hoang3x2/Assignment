@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Students } from '../students'
+import { Students } from '../students';
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-quenmatkhau',
   templateUrl: './quenmatkhau.component.html',
@@ -8,43 +9,16 @@ import { Students } from '../students'
 export class QuenmatkhauComponent implements OnInit {
   formSudent = {
     username: "",
-    fullname: "",
     email: "",
     passwordnew: "",
   }
-  students: Students[] =
-    [
-      {
-        id: 1,
-        username: "teonv",
-        password: "iloveyou",
-        fullname: "Nguyễn Văn Tèo",
-        email: "teonv@fpt.edu.vn",
-        gender: "nam",
-        birthday: new Date(1995, 12, 21),
-      },
-      {
-        id: 2,
-        username: "pheonv",
-        password: "iloveyou",
-        fullname: "Nguyễn Văn Chí Phèo",
-        email: "pheonv@fpt.edu.vn",
-        gender: "nam",
-        birthday: new Date(1985, 10, 11),
-      },
-      {
-        id: 3,
-        username: "nopt",
-        password: "iloveyou",
-        fullname: "Phạm Thị Nở",
-        email: "nopt@fpt.edu.vn",
-        gender: "nu",
-        birthday: new Date(1993, 5, 15),
-      }
-    ]
-  constructor() { }
+  students;
+  constructor(private ds: DataService) {
+    
+   }
 
   ngOnInit() {
+    this.students=this.ds.students;
   }
   dem = 0;
   chua = -1;
@@ -55,14 +29,12 @@ export class QuenmatkhauComponent implements OnInit {
         this.dem++;
         this.chua = index;
       }
-      
     }
     if (this.dem === 1) {
       confirm("Thông tin chính xác,bạn có chắc muốn đổi?")
-      this.students[this.chua].password = this.formSudent.passwordnew;
+      this.ds.students[this.chua].password = this.formSudent.passwordnew;
       this.formSudent = {
         username: "",
-        fullname: "",
         email: "",
         passwordnew: "",
       }
@@ -71,7 +43,6 @@ export class QuenmatkhauComponent implements OnInit {
       alert("Thông tin không chính xác")
       this.formSudent = {
         username: "",
-        fullname: "",
         email: "",
         passwordnew: "",
       }

@@ -1,30 +1,77 @@
 <div class="container">
-        <br>
-        <h1 style="color:green   ;text-align:center">Đổi mật khẩu</h1>
-        <form>
-            <div class="form-group">
-                <label for="formGroupExampleInput">Nhập  Username</label>
-                <input type="text" class="form-control" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
-            </div>
-            <div class="form-group">
-                <label for="formGroupExampleInput">Nhập mật khẩu cũ</label>
-                <input type="text" class="form-control" [(ngModel)]="passwordCu" [ngModelOptions]="{standalone: true}">
-            </div>
-            <div class="form-group">
-                <label for="formGroupExampleInput2">Nhập mật khẩu mới</label>
-                <input type="text" class="form-control" [(ngModel)]="passwordMoi" [ngModelOptions]="{standalone: true}">
-            </div>
-            <div class="form-group">
-                <label for="formGroupExampleInput">Nhập Lại mật khẩu mới</label>
-                <input type="text" class="form-control" [(ngModel)]="nhapLaiPasswordMoi" [ngModelOptions]="{standalone: true}">
-            </div>
-            <button class="btn btn-success" (click)="DoiMatKhau()">Submit</button>
-        </form>
-        <div>
-            <div>
-                test
-            </div>
-                "username": "teonv",
-                "password": "iloveyou",
+    <br>
+    <h1 style="color:green   ;text-align:center">Đổi mật khẩu</h1>
+    <form>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Nhập Username</label>
+            <input type="text" class="form-control" [(ngModel)]="formSudent.username"
+                [ngModelOptions]="{standalone: true}">
         </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Nhập mật khẩu cũ</label>
+            <input type="text" class="form-control" [(ngModel)]="formSudent.passwordcu"
+                [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Nhập mật khẩu mới</label>
+            <input type="text" class="form-control" [(ngModel)]="formSudent.passwordMoi"
+                [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Nhập Lại mật khẩu mới</label>
+            <input type="text" class="form-control" [(ngModel)]="formSudent.nhapLaiPasswordMoi"
+                [ngModelOptions]="{standalone: true}">
+        </div>
+        <button class="btn btn-success" (click)="DoiMatKhau()">Submit</button>
+    </form>
+    <div>
+        <h2>
+            Bảng test
+        </h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">username</th>
+                    <th scope="col">password</th>
+                    <th scope="col">fullname</th>
+                    <th scope="col">birthday</th>
+                    <th scope="col">email</th>
+                    <th scope="col">gender</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>{{formdemo.username}}</th>
+                    <td>{{formdemo.password}}</td>
+                    <td>{{formdemo.fullname}}</td>
+                    <td>{{formdemo.birthday| date :'dd-MM-yyyy'}}</td>
+                    <td>{{formdemo.email}}</td>
+                    <td>{{formdemo.gender}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">username</th>
+                    <th scope="col">password</th>
+                    <th scope="col">fullname</th>
+                    <th scope="col">birthday</th>
+                    <th scope="col">email</th>
+                    <th scope="col">gender</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let sv of students">
+                    <th>{{sv.username}}</th>
+                    <td>{{sv.password}}</td>
+                    <td>{{sv.fullname}}</td>
+                    <td>{{sv.birthday| date :'dd-MM-yyyy'}}</td>
+                    <td>{{sv.email}}</td>
+                    <td>{{sv.gender}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+</div>

@@ -32,8 +32,8 @@
 
         <label for="exampleInputEmail1" style="margin-top: 10px;">Giới Tính:</label>
         <br>
-        <input type="radio" name="gioitinh" value="nam"  [(ngModel)]="formSudent.gender" [ngModelOptions]="{standalone: true}"> Nam<br>
-        <input type="radio" name="gioitinh" value="nu" [(ngModel)]="formSudent.gender" [ngModelOptions]="{standalone: true}"> Nữ<br>
+        <input type="radio" name="gioitinh" value="true"  [(ngModel)]="formSudent.gender" [ngModelOptions]="{standalone: true}"> Nam<br>
+        <input type="radio" name="gioitinh" value="false" [(ngModel)]="formSudent.gender" [ngModelOptions]="{standalone: true}"> Nữ<br>
         <br>
         <button type="submit" class="btn btn-primary" (click)="Addthongtin()">Submit</button>
     </form>

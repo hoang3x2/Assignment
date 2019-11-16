@@ -22,12 +22,12 @@ export class DangkiComponent implements OnInit {
     this.students=this.ds.students;
   }
   Addthongtin() {
-    // this.students.push(Object.assign(this.formSudent))
     //this.students.push(this.formSudent);
     // this.ds.formsaukhidangki=this.students;
     // this.ds.formsaukhidangki.push(this.formSudent);
     //console.log(this.ds.formsaukhidangki)
-    this.ds.adddangki(this.formSudent);
+    // this.ds.adddangki(this.formSudent);
+    this.ds.students.push(Object.assign(this.formSudent))
     this.formSudent = {
       username: "",
       password: "",
