@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
 import {HttpClientModule} from '@angular/common/http';
+import { CountdownModule } from 'ngx-countdown';
 
 import { AppComponent } from './app.component';
 import { TrangchuComponent } from './trangchu/trangchu.component';
@@ -57,6 +58,7 @@ import { QuenmatkhauComponent } from './quenmatkhau/quenmatkhau.component';
   imports: [
     BrowserModule,
     FormsModule,
+    CountdownModule,
     NgxPaginationModule,
     HttpClientModule,
     RouterModule.forRoot(

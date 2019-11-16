@@ -1,21 +1,28 @@
 <div class="container">
-    <form>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Có lỗi xảy ra</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="formSudent.one" [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Quá trình thi</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="formSudent.two" [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Màu sắc?</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="formSudent.three" [ngModelOptions]="{standalone: true}">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Góp ý</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"[(ngModel)]="formSudent.four" [ngModelOptions]="{standalone: true}"></textarea>
-        </div>
-        <button (click)="checkgui()" type="button" class="btn btn-outline-primary">Gửi</button>
-    </form>
+    <h2>Góp Ý</h2>
+    <div class="box">
+        <form>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Có lỗi xảy ra</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="formSudent.one"
+                    [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Quá trình thi</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="formSudent.two"
+                    [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Màu sắc?</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" [(ngModel)]="formSudent.three"
+                    [ngModelOptions]="{standalone: true}">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Góp ý</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="formSudent.four"
+                    [ngModelOptions]="{standalone: true}"></textarea>
+            </div>
+            <button (click)="checkgui()" type="button" class="btn btn-outline-primary">Gửi</button>
+        </form>
+    </div>
 </div>

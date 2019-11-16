@@ -33,9 +33,9 @@ export class DoimatkhauComponent implements OnInit {
         }
         else {
           this.students[i].password = this.passwordMoi;
-          console.log('day la form sau khi doi mat khau'+this.ds.chuaformsaukhidoimatkhau);
+          console.log('day la form sau khi doi mat khau'+this.ds.formsaukhidangki);
           alert('đổi mật khẩu thành công');
-          this.ds.chuaformsaukhidoimatkhau=this.students;
+          this.ds.formsaukhidangki=this.students;
           this.router.navigate(['/dangnhap']);
           break;
         }

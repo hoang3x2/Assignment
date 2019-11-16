@@ -2,11 +2,21 @@
     <br>
     <div class="card " *ngFor="let qui of quiz | paginate: { itemsPerPage: sodong, currentPage: sotrang }">
 
-        <div class="card-header" align="left" style="background-color: red;color: yellow;">
-            {{name}}
+        <div class="card-header" style="background-color: red;color: yellow;">
+            <div style="float:left">{{name}}</div>
+            <div style="float:right">
+                <div style="color: black;">Thời gian còn lại:</div>
+                <div style="margin-left: 20px;color:white"><i class="far fa-clock" style="margin-right:10px;"></i> 
+                     <countdown #countdown [config]="{leftTime: 600 }" (finished)="finishTest()"> $!m!:$!s!</countdown>
+                </div>
+
+            </div>
+
+
         </div>
+
         <div class="card-body">
-            <p style="text-align: center;background-color: rgb(119, 131, 131);color: white;">Câu
+            <p style="text-align: center;background-color: rgb(119, 131, 131);color: white;padding: 10px 0">Câu
                 {{sotrang}}:{{qui.Text}}</p>
             <div *ngFor="let question of qui.Answers">
                 <div class="row" style="margin-left: 10px;">

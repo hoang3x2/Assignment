@@ -1,0 +1,22 @@
+h2 {
+    color: darkslateblue;
+    border-bottom: 2px solid #ff0000;
+}
+
+.box img {
+    height: 550px;
+    margin-top: 20px;
+}
+
+.box {
+    position: relative;
+}
+
+.flex {
+    position: absolute;
+    left:0;
+    top:0;
+}
+.flex img{
+    height: 200px;
+}

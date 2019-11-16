@@ -1,0 +1,19 @@
+
+.img img{
+    height: 200px;
+}
+.col-7 div{
+    margin:20px 0;
+    color: rgb(205, 255, 5);
+}
+.row{
+    border: 1px solid;
+    box-shadow: 5px 10px red;
+    background-color: darkgray;
+    padding:10px 5px;
+}
+h2{
+    color: darkslateblue;
+    border-bottom: 2px solid #ff0000;
+    
+}

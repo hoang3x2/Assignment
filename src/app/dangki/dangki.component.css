@@ -1,0 +1,13 @@
+h1 {
+    color: darkslateblue;
+    padding-bottom: 10px;
+    background: blue;
+    border-radius: 20px;
+}
+form{
+    box-shadow: 5px 10px royalblue;
+    background-color: rgb(211, 216, 214);
+    padding:10px 5px;
+    color:blue;
+    padding:30px 20px
+}

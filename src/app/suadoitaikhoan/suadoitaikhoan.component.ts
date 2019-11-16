@@ -24,7 +24,6 @@ export class SuadoitaikhoanComponent implements OnInit {
         // console.log('loggedStudent',this.loggedStudent)
       })
     }
-
   }
   luuThayDoi() {
     alert('đã thay đổi thành công!')

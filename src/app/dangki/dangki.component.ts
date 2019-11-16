@@ -19,14 +19,15 @@ export class DangkiComponent implements OnInit {
   constructor(private ds: DataService) { }
 
   ngOnInit() {
-    this.ds.getstudents().subscribe(data => {
-      this.students = data;
-    })
+    this.students=this.ds.students;
   }
   Addthongtin() {
-    this.students.push(Object.assign(this.formSudent))
-    this.ds.chuaformsaukhidoimatkhau=this.students;
-    console.log(this.ds.chuaformsaukhidoimatkhau)
+    // this.students.push(Object.assign(this.formSudent))
+    //this.students.push(this.formSudent);
+    // this.ds.formsaukhidangki=this.students;
+    // this.ds.formsaukhidangki.push(this.formSudent);
+    //console.log(this.ds.formsaukhidangki)
+    this.ds.adddangki(this.formSudent);
     this.formSudent = {
       username: "",
       password: "",
