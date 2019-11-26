@@ -40,49 +40,6 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary" (click)="luuThayDoi()">Lưu thay đổi</button>
+        <button type="submit" class="btn btn-primary" (click)="luuThayDoi()" >Lưu thay đổi</button>
     </form>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">username</th>
-                <th scope="col">fullname</th>
-                <th scope="col">birthday</th>
-                <th scope="col">email</th>
-                <th scope="col">gender</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>{{loggedStudent.username}}</th>
-                <td>{{loggedStudent.fullname}}</td>
-                <td>{{loggedStudent.birthday| date :'dd-MM-yyyy'}}</td>
-                <td>{{loggedStudent.email}}</td>
-                <td>{{loggedStudent.gender}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <hr>
-    <h3>bảng test</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">username</th>
-                <th scope="col">fullname</th>
-                <th scope="col">birthday</th>
-                <th scope="col">email</th>
-                <th scope="col">gender</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let sv of students">
-                <th>{{sv.username}}</th>
-                <td>{{sv.fullname}}</td>
-                <td>{{sv.birthday| date :'dd-MM-yyyy'}}</td>
-                <td>{{sv.email}}</td>
-                <td>{{sv.gender}}</td>
-            </tr>
-        </tbody>
-    </table>
 </div>

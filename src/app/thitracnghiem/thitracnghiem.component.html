@@ -4,7 +4,7 @@
         <div style="text-align: right;">
             <div style="color: black;">Thời gian còn lại:</div>
             <div style="color:red;font-weight: 600;margin-right:15px"><i class="far fa-clock" style="margin-right:10px;"></i> 
-                 <countdown #countdown [config]="{leftTime: 600 }" (finished)="finishTest()"> $!m!:$!s!</countdown>
+                 <countdown #countdown [config]="{leftTime: thoigian }" (finished)="finishTest(thoigian)"> $!m!:$!s!</countdown>
             </div>
 
         </div>

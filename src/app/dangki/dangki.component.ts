@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Students } from '../students';
 import { DataService } from '../data.service';
+import { FirebaseServiceService } from '../firebase-service.service'
+import { AngularFireDatabase } from '@angular/fire/database';
 @Component({
   selector: 'app-dangki',
   templateUrl: './dangki.component.html',
@@ -15,19 +17,15 @@ export class DangkiComponent implements OnInit {
     gender: "",
     birthday: new Date().toISOString().substring(0, 10),
   }
-  students;
-  constructor(private ds: DataService) { }
+  students:any[];
+  constructor(private ds: DataService, private fb: FirebaseServiceService,private db:AngularFireDatabase) { }
 
   ngOnInit() {
-    this.students=this.ds.students;
+    this.students=this.fb.students;
   }
   Addthongtin() {
-    //this.students.push(this.formSudent);
-    // this.ds.formsaukhidangki=this.students;
-    // this.ds.formsaukhidangki.push(this.formSudent);
-    //console.log(this.ds.formsaukhidangki)
-    // this.ds.adddangki(this.formSudent);
-    this.ds.students.push(Object.assign(this.formSudent))
+    this.fb.students.push(this.formSudent);
+    this.db.list('/Students').push(this.formSudent);
     this.formSudent = {
       username: "",
       password: "",

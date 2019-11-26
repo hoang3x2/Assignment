@@ -24,6 +24,8 @@ export class SuadoitaikhoanComponent implements OnInit {
   }
   luuThayDoi() {
     alert('đã thay đổi thành công!')
+    this.router.navigate(['/dangnhap']);
+    this.ds.checkdangnhap=false;
   }
   
 }

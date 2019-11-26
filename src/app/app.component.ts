@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
 import { Router } from '@angular/router'
+import { AngularFireDatabase } from '@angular/fire/database';
+import { FirebaseServiceService } from './firebase-service.service';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -113,23 +115,26 @@ export class AppComponent implements OnInit {
     isshow = true;
     Username;
     anhien = false;
-    constructor(private ds: DataService, private router: Router) {
+    constructor(private ds: DataService, private router: Router, private db: AngularFireDatabase, private fb: FirebaseServiceService) {
 
     }
- 
-
     ngOnInit() {
+        this.fb.getStudent().subscribe(data => {
+            this.fb.students = data;
+            console.log(this.fb.students);
+        });
     }
     exit() {
         if (this.ds.checkdangnhap == false) {
-            alert('vui long dang nhap!')
-            this.router.navigate(['/dangnhap'])
+            alert('vui long dang nhap!');
+            this.router.navigate(['/dangnhap']);
+
         }
         if (this.ds.checkdangnhap == true) {
-            alert('ban da dang xuat!')
-            this.router.navigate(['/dangnhap'])
+            alert('ban da dang xuat!');
+            this.router.navigate(['/dangnhap']);
             this.ds.checkdangnhap = false;
-            console.log(this.ds.checkdangnhap)
+            console.log(this.ds.checkdangnhap);
         }
         console.log(this.anhien)
     }
@@ -146,16 +151,16 @@ export class AppComponent implements OnInit {
             this.router.navigate(['/dangnhap'])
         }
     }
-    getisShow(){
-        if(this.ds.checkdangnhap==true){
-            this.Username=this.ds.username;
+    getisShow() {
+        if (this.ds.checkdangnhap == true) {
+            this.Username = this.ds.username;
             // console.log('asdasd',this.Username)
             return false;
         }
-        else{
+        else {
             return true;
         }
-        
+
     }
 
 }

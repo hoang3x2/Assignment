@@ -2,44 +2,34 @@ import { Component, OnInit } from '@angular/core';
 import { Students } from '../students';
 import { ActivatedRoute, RouterLink, Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { FirebaseServiceService } from '../firebase-service.service';
 @Component({
   selector: 'app-dangnhap',
   templateUrl: './dangnhap.component.html',
   styleUrls: ['./dangnhap.component.css']
 })
 export class DangnhapComponent implements OnInit {
-  students;
   formStudent = {
     username: "",
     password: "",
   }
-  constructor(private route: ActivatedRoute, private router: Router, private ds: DataService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private ds: DataService,private db:AngularFireDatabase, private fb: FirebaseServiceService) { }
   dangNhapThanhCong = true;
   nhapSaiThongTin = true;
   ngOnInit() {
-    // this.ds.getstudents().subscribe(data=>{
-    //       this.students=data;
-    //        console.log(this.students);
-    //   });
-    //   if (this.ds.formsaukhidangki=null) {
-        
-    //   }
-    // this.students = this.ds.formsaukhidangki;
-    // console.log('day la mang cua tui:' + this.students)
-    this.students=this.ds.students;
-    
   }
   Dangnhap() {
-    for (let i = 0; i < this.students.length; i++) {
-      if (this.formStudent.username === this.students[i].username && this.formStudent.password === this.students[i].password) {
+    console.log(this.fb.students)
+    for (let i = 0; i < this.fb.students.length; i++) {
+      if (this.formStudent.username === this.fb.students[i].username && this.formStudent.password === this.fb.students[i].password) {
         this.dangNhapThanhCong = false;
         this.nhapSaiThongTin = !this.dangNhapThanhCong;
-        alert(`Đăng nhập thành công`);
+        alert(`Đăng nhập thành công,Chúc Bạn May Mắn :)`);
         this.ds.checkdangnhap = true;
-        this.router.navigate(['/trangchu']);
-        this.ds.username = this.students[i].username;
-        this.ds.fullname = this.students[i].fullname;
-        // console.log(this.ds.username)
+        this.router.navigate(['/danhmuc']);
+        this.ds.username = this.fb.students[i].username;
+        this.ds.fullname = this.fb.students[i].fullname;
         this.ds.checkdangnhap = true;
         return;
       }

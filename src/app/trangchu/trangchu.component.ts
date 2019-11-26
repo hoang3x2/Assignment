@@ -32,8 +32,11 @@ export class TrangchuComponent implements OnInit {
     checkdangnhap_trangchu()
      {
         if (this.ds.checkdangnhap == false) {
-            alert('vui long dang nhap!')
-            this.router.navigate(['/dangnhap'])
+            alert('vui long dang nhap truoc khi thi!');
+            this.router.navigate(['/dangnhap']);
+        }
+        else{
+            alert('bắt đầu thi nào!')
         }
     }
 

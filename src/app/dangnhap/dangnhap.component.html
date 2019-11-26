@@ -3,7 +3,7 @@
     <br>
     <form>
         <div class="form-group">
-            <label for="formGroupExampleInput">Tai Khoan</label>
+            <label for="formGroupExampleInput">Tài Khoản</label>
             <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="formStudent.username"
                 [ngModelOptions]="{standalone: true}">
         </div>
@@ -24,31 +24,6 @@
         <div [hidden]="nhapSaiThongTin">
             <h2 class="alert alert-danger">Đăng Nhập thất bại</h2>
 
-        </div>
-        <div>
-            <h3>bảng test</h3>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">username</th>
-                        <th scope="col">password</th>
-                        <th scope="col">fullname</th>
-                        <th scope="col">birthday</th>
-                        <th scope="col">email</th>
-                        <th scope="col">gender</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let sv of students">
-                        <th>{{sv.username}}</th>
-                        <td>{{sv.password}}</td>
-                        <td>{{sv.fullname}}</td>
-                        <td>{{sv.birthday| date :'dd-MM-yyyy'}}</td>
-                        <td>{{sv.email}}</td>
-                        <td>{{sv.gender}}</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </form>
 

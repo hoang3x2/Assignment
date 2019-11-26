@@ -48,7 +48,7 @@ ngOnInit() {
 }
 sodong = 1;
 sotrang = 1;
-thoigian=300;
+thoigian=3600;
 nextpage() {
   this.hieninput = false;
   this.hiensubmit = true;
@@ -57,9 +57,9 @@ nextpage() {
   if (this.quiz.length / this.sodong > this.sotrang) {
     this.sotrang++;
   }
-  if (this.sotrang == this.quiz.length + 1) {
+  if (this.sotrang == this.quiz.length) {
     alert('bai thi cua ban dat duoc:' + this.mark);
-    this.router.navigate(['/trangchu']);
+    this.router.navigate(['/danhmuc']);
   }
 }
 luipage() {
@@ -91,7 +91,11 @@ kiemtrasubmit() {
     this.hiensubmit = true;
   }
 }
-finishTest(){
-  alert('bai thi cua ban dat duoc:' + this.mark);
+finishTest(thoigian){
+  if (thoigian<=0) {
+    alert('bai thi cua ban dat duoc:' + this.mark);
+    this.router.navigate(['/trangchu']);
+  }
+    
 }
 }
